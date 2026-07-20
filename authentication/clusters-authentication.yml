@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/clusters-v1-openapi.yml
+docs: https://docs.clusters.xyz/getting-started/api/v1/authentication
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-API-KEY
+  description: Optional API key from https://clusters.xyz/developer to raise rate limits.
+  sources:
+  - openapi/clusters-v1-openapi.yml
+- name: WalletBearerAuth
+  type: http
+  scheme: bearer
+  description: Wallet-signature auth token obtained from POST /auth/token.
+  sources:
+  - openapi/clusters-v1-openapi.yml
