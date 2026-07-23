@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: Authentication Clusters API
+  version: '1.0'
+  description: Clusters is a multichain namespace and identity service that gives users a single universal name (username/wallet) resolvable across EVM, Solana, and other blockchain ecosystems. The v1 REST API resolves addresses to cluster names and back, reads cluster profiles, checks name availability, produces registration transaction data, manages community clusters, and streams a replayable historical event feed. Read endpoints are public; write/manage endpoints require a wallet-signature bearer token. An optional API key raises rate limits.
+  contact:
+    name: Clusters
+    url: https://docs.clusters.xyz
+  x-apievangelist-provenance:
+    method: generated
+    source: https://docs.clusters.xyz/getting-started/api/v1
+    note: Faithfully modeled from the provider's published v1 documentation; the Clusters team does not publish an OpenAPI definition. Base URL verified live 2026-07-18.
+servers:
+- url: https://api.clusters.xyz/v1
+  description: Production v1
+security:
+- ApiKeyAuth: []
+- {}
+tags:
+- name: Clusters
+  description: Read and create clusters (profiles bundling wallets)
+paths:
+  /clusters:
+    post:
+      operationId: createCluster
+      tags:
+      - Clusters
+      summary: Create a cluster
+      description: Create a cluster. Requires a wallet-signature bearer token.
+      security:
+      - WalletBearerAuth: []
+      responses:
+        '200':
+          description: Created cluster id
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+  /clusters/id/{id}:
+    get:
+      operationId: getClusterById
+      tags:
+      - Clusters
+      summary: Get cluster by id
+      description: Get the cluster for an id.
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Cluster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+  /clusters/name/{name}:
+    get:
+      operationId: getClusterByName
+      tags:
+      - Clusters
+      summary: Get cluster by name
+      description: Get the cluster for a name.
+      parameters:
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Cluster
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cluster'
+components:
+  schemas:
+    Wallet:
+      type: object
+      properties:
+        address:
+          type: string
+        name:
+          type: string
+        isVerified:
+          type: boolean
+        isPrivate:
+          type: boolean
+        isBackedUp:
+          type: boolean
+        updatedAt:
+          type: string
+        updatedBy:
+          type: string
+        createdAt:
+          type: string
+    Cluster:
+      type: object
+      properties:
+        id:
+          type: string
+        createdBy:
+          type: string
+        createdAt:
+          type: string
+        wallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Wallet'
+        isTestnet:
+          type: boolean
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+      description: Optional API key from https://clusters.xyz/developer to raise rate limits.
+    WalletBearerAuth:
+      type: http
+      scheme: bearer
+      description: Wallet-signature auth token obtained from POST /auth/token.

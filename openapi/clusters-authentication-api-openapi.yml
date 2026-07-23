@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: Clusters Authentication API
+  version: '1.0'
+  description: Clusters is a multichain namespace and identity service that gives users a single universal name (username/wallet) resolvable across EVM, Solana, and other blockchain ecosystems. The v1 REST API resolves addresses to cluster names and back, reads cluster profiles, checks name availability, produces registration transaction data, manages community clusters, and streams a replayable historical event feed. Read endpoints are public; write/manage endpoints require a wallet-signature bearer token. An optional API key raises rate limits.
+  contact:
+    name: Clusters
+    url: https://docs.clusters.xyz
+  x-apievangelist-provenance:
+    method: generated
+    source: https://docs.clusters.xyz/getting-started/api/v1
+    note: Faithfully modeled from the provider's published v1 documentation; the Clusters team does not publish an OpenAPI definition. Base URL verified live 2026-07-18.
+servers:
+- url: https://api.clusters.xyz/v1
+  description: Production v1
+security:
+- ApiKeyAuth: []
+- {}
+tags:
+- name: Authentication
+  description: Wallet-signature authentication for write operations
+paths:
+  /auth/message:
+    get:
+      operationId: getSigningMessage
+      tags:
+      - Authentication
+      summary: Get signing message
+      description: Get the signing message used for wallet signature authentication.
+      responses:
+        '200':
+          description: The message to sign and the corresponding signing date
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SigningMessage'
+  /auth/token:
+    post:
+      operationId: createAuthToken
+      tags:
+      - Authentication
+      summary: Get authentication key
+      description: Authenticate ownership of a specific wallet by submitting a signed message.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AuthTokenRequest'
+      responses:
+        '200':
+          description: The auth key used for authenticated requests
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthToken'
+components:
+  schemas:
+    AuthTokenRequest:
+      type: object
+      required:
+      - signature
+      - signingDate
+      - type
+      - wallet
+      properties:
+        signature:
+          type: string
+        signingDate:
+          type: string
+          format: date-time
+        type:
+          type: string
+          enum:
+          - evm
+          - solana
+        wallet:
+          type: string
+    AuthToken:
+      type: object
+      properties:
+        token:
+          type: string
+    SigningMessage:
+      type: object
+      properties:
+        message:
+          type: string
+        signingDate:
+          type: string
+          format: date-time
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+      description: Optional API key from https://clusters.xyz/developer to raise rate limits.
+    WalletBearerAuth:
+      type: http
+      scheme: bearer
+      description: Wallet-signature auth token obtained from POST /auth/token.

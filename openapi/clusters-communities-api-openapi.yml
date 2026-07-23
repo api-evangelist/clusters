@@ -1,0 +1,102 @@
+openapi: 3.1.0
+info:
+  title: Clusters Authentication Communities API
+  version: '1.0'
+  description: Clusters is a multichain namespace and identity service that gives users a single universal name (username/wallet) resolvable across EVM, Solana, and other blockchain ecosystems. The v1 REST API resolves addresses to cluster names and back, reads cluster profiles, checks name availability, produces registration transaction data, manages community clusters, and streams a replayable historical event feed. Read endpoints are public; write/manage endpoints require a wallet-signature bearer token. An optional API key raises rate limits.
+  contact:
+    name: Clusters
+    url: https://docs.clusters.xyz
+  x-apievangelist-provenance:
+    method: generated
+    source: https://docs.clusters.xyz/getting-started/api/v1
+    note: Faithfully modeled from the provider's published v1 documentation; the Clusters team does not publish an OpenAPI definition. Base URL verified live 2026-07-18.
+servers:
+- url: https://api.clusters.xyz/v1
+  description: Production v1
+security:
+- ApiKeyAuth: []
+- {}
+tags:
+- name: Communities
+  description: Community cluster name availability and registration
+paths:
+  /names/community/{communityName}/check/{name}:
+    get:
+      operationId: checkCommunityNameAvailability
+      tags:
+      - Communities
+      summary: Check community name availability
+      description: Check the availability of a community cluster name.
+      parameters:
+      - name: communityName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Availability result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Availability'
+  /names/community/{communityName}/register:
+    post:
+      operationId: registerCommunityName
+      tags:
+      - Communities
+      summary: Register a community name
+      description: Register a community cluster name. Requires a wallet-signature bearer token.
+      security:
+      - WalletBearerAuth: []
+      parameters:
+      - name: communityName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                walletAddress:
+                  type: string
+                  description: Admin-only; register on behalf of another wallet.
+      responses:
+        '200':
+          description: Registered community name
+          content:
+            application/json:
+              schema:
+                type: object
+components:
+  schemas:
+    Availability:
+      type: object
+      properties:
+        name:
+          type: string
+        isAvailable:
+          type: boolean
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+      description: Optional API key from https://clusters.xyz/developer to raise rate limits.
+    WalletBearerAuth:
+      type: http
+      scheme: bearer
+      description: Wallet-signature auth token obtained from POST /auth/token.
