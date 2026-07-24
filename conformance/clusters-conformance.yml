@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/clusters-v1-openapi.yml + https://docs.clusters.xyz/
+standards:
+- id: oauth2
+  conforms: false
+  evidence: No OAuth2 security scheme; auth is API key + wallet-signature bearer token.
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are plain JSON / HTTP status codes; no application/problem+json.
+- id: api-key-auth
+  conforms: true
+  evidence: X-API-KEY header optional for rate-limit tiers.
+- id: cursor-pagination
+  conforms: true
+  evidence: /v1/events uses nextPage cursor with limit.
+- id: rest-json
+  conforms: true
+  evidence: JSON over HTTPS REST resource endpoints.
+- id: testnet-parity
+  conforms: true
+  evidence: ?testnet=true mirrors production endpoints against Sepolia.

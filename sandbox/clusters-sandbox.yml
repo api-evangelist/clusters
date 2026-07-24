@@ -1,0 +1,17 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.clusters.xyz/getting-started/api/v1/address-cluster-name + https://docs.clusters.xyz/resources/address-types
+test_mode:
+  mechanism: query-flag
+  param: "testnet=true"
+  description: >-
+    Append ?testnet=true to query endpoints to resolve against testnet state
+    instead of mainnet. Registration data endpoints accept testnet chain ids.
+  network: Sepolia
+testnet_networks:
+  evm: ["11155111"]   # Sepolia (per registration network list)
+  holesky: ["17000"]  # Holesky testnet (per registration network list)
+notes:
+  - Reads (resolution, availability, cluster lookups, events) require no credentials, so they can be exercised directly against production for integration testing.
+  - No published test cards or magic test identifiers exist; Clusters is an on-chain naming protocol, so "test mode" means testnet chains, not synthetic fixtures.
+  - Wallet-authenticated writes require a real EVM/Solana signature; there is no hosted sandbox signer.

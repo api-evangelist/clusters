@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.npmjs.com/org/clustersxyz
+packages:
+- language: javascript
+  registry: npm
+  name: "@clustersxyz/sdk"
+  url: https://www.npmjs.com/package/@clustersxyz/sdk
+  install: npm install @clustersxyz/sdk viem
+  version: 1.0.2
+  license: MIT
+  repository: https://github.com/clustersxyz/sdk
+  description: Framework-agnostic client that resolves names, addresses, and wallets for Clusters.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@clustersxyz/data-availability"
+  url: https://www.npmjs.com/package/@clustersxyz/data-availability
+  install: npm install @clustersxyz/data-availability
+  description: Tools for interacting with the Clusters data availability layer (Arweave) — events, manifests, and uploads.
+  official: true
+- language: javascript
+  registry: npm
+  name: "@clustersxyz/metamask-snap"
+  url: https://www.npmjs.com/package/@clustersxyz/metamask-snap
+  install: npm install @clustersxyz/metamask-snap
+  description: MetaMask Snap for displaying Clusters names natively within the wallet.
+  official: true

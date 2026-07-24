@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Clusters API v1
+  version: 1.0.0
+extends: openapi/clusters-v1-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: 3
+    x-apievangelist-notes: >-
+      Modeled from published v1 docs; provider ships no OpenAPI. Reads are public;
+      writes use a wallet-signature bearer token. Optional X-API-KEY raises limits.
+- target: $.info
+  update:
+    x-agent-ready: true
+    x-idempotency: none-documented
+    x-pagination: cursor (events nextPage)
+- target: $.tags
+  update:
+  - name: Identity
+    description: Multichain identity resolution

@@ -1,0 +1,24 @@
+{
+  "provider": "clusters",
+  "sources": [
+    "clusters-authentication-api-openapi.yml",
+    "clusters-clusters-api-openapi.yml",
+    "clusters-communities-api-openapi.yml",
+    "clusters-events-api-openapi.yml",
+    "clusters-names-api-openapi.yml",
+    "clusters-registration-api-openapi.yml"
+  ],
+  "outputs": [
+    "clusters-authentication-api-openapi.yml",
+    "clusters-clusters-api-openapi.yml",
+    "clusters-communities-api-openapi.yml",
+    "clusters-events-api-openapi.yml",
+    "clusters-names-api-openapi.yml",
+    "clusters-registration-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

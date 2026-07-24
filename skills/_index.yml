@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/clusters-v1-openapi.yml
+skills:
+- file: clusters-resolve-address.md
+  name: Resolve an address to a Clusters name
+  api: openapi/clusters-v1-openapi.yml
+  operations: [getNameByAddress, getNamesByOwner]
+- file: clusters-resolve-name.md
+  name: Resolve a Clusters name to addresses
+  api: openapi/clusters-v1-openapi.yml
+  operations: [getAddressesByName, getClusterByName]
+- file: clusters-register-name.md
+  name: Check availability and register a Clusters name
+  api: openapi/clusters-v1-openapi.yml
+  operations: [checkNameAvailability, getRegistrationDataEvm, getRegistrationDataSolana]

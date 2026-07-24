@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: searched
+source: probe of /.well-known/* across web, api, and docs hosts
+note: >-
+  The apex host clusters.xyz is a single-page app that returns HTTP 200 with an
+  HTML shell for unmatched paths, so /.well-known/* requests there are soft-404s
+  (SPA fallback), not real discovery documents. The api and docs hosts return
+  genuine 404s. No valid well-known documents were found; none saved.
+hosts:
+- host: https://clusters.xyz
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    valid: false
+    reason: SPA HTML fallback, not a security.txt document
+  - path: /.well-known/openid-configuration
+    status: 200
+    valid: false
+    reason: SPA HTML fallback
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    valid: false
+    reason: SPA HTML fallback
+  - path: /.well-known/api-catalog
+    status: 200
+    valid: false
+    reason: SPA HTML fallback
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    valid: false
+    reason: SPA HTML fallback
+- host: https://api.clusters.xyz
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://docs.clusters.xyz
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404

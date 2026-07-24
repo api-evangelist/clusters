@@ -1,27 +1,197 @@
 aid: clusters
 name: Clusters
-description: 'Clusters is a company surfaced as a portfolio company of electric-capital and added to the
-  API Evangelist network as a stub for enrichment. Sector: infrastructure. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Clusters is a multichain namespace and identity service that gives users a
+  single universal name across blockchain ecosystems instead of a separate
+  domain per chain. A Clusters name uses the format username/wallet (for example
+  username/eth or username/sol) to bundle many wallets — EVM chains, Solana, and
+  more — under one hierarchical, human-readable profile. The Clusters v1 REST API
+  resolves an address to its cluster and wallet name and back, reads full cluster
+  profiles, checks name availability, produces on-chain registration transaction
+  data for EVM and Solana, registers community cluster names, and exposes a
+  replayable historical event feed for permissionless indexing. Reads are public;
+  wallet management and registration require a wallet-signature bearer token, and
+  an optional API key raises rate limits. The protocol uses a hub-and-spoke model
+  bridged with LayerZero v2 and replicates metadata to Arweave for data
+  availability. Backed by Electric Capital.
 url: https://raw.githubusercontent.com/api-evangelist/clusters/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - electric-capital
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-public-docs
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
+image: https://clusters.xyz/assets/images/apple/apple-touch-icon.png
 tags:
 - Company
 - Infrastructure
-apis: []
+- Identity
+- Naming
+- Blockchain
+- Web3
+- Wallet
+- Multichain
+- Resolver
+apis:
+- aid: clusters:clusters-authentication-api
+  name: Clusters Authentication API
+  description: Wallet-signature authentication for write operations
+  humanURL: https://docs.clusters.xyz/getting-started/api/v1
+  baseURL: https://api.clusters.xyz/v1
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/clusters-authentication-api-openapi.yml
+  - type: APIReference
+    url: https://docs.clusters.xyz/getting-started/api/v1
+- aid: clusters:clusters-clusters-api
+  name: Clusters Clusters API
+  description: Read and create clusters (profiles bundling wallets)
+  humanURL: https://docs.clusters.xyz/getting-started/api/v1
+  baseURL: https://api.clusters.xyz/v1
+  tags:
+  - Clusters
+  properties:
+  - type: OpenAPI
+    url: openapi/clusters-clusters-api-openapi.yml
+  - type: APIReference
+    url: https://docs.clusters.xyz/getting-started/api/v1
+- aid: clusters:clusters-communities-api
+  name: Clusters Communities API
+  description: Community cluster name availability and registration
+  humanURL: https://docs.clusters.xyz/getting-started/api/v1
+  baseURL: https://api.clusters.xyz/v1
+  tags:
+  - Communities
+  properties:
+  - type: OpenAPI
+    url: openapi/clusters-communities-api-openapi.yml
+  - type: APIReference
+    url: https://docs.clusters.xyz/getting-started/api/v1
+- aid: clusters:clusters-events-api
+  name: Clusters Events API
+  description: Replayable historical event feed
+  humanURL: https://docs.clusters.xyz/getting-started/api/v1
+  baseURL: https://api.clusters.xyz/v1
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/clusters-events-api-openapi.yml
+  - type: APIReference
+    url: https://docs.clusters.xyz/getting-started/api/v1
+- aid: clusters:clusters-names-api
+  name: Clusters Names API
+  description: Resolve addresses to cluster/wallet names and back
+  humanURL: https://docs.clusters.xyz/getting-started/api/v1
+  baseURL: https://api.clusters.xyz/v1
+  tags:
+  - Names
+  properties:
+  - type: OpenAPI
+    url: openapi/clusters-names-api-openapi.yml
+  - type: APIReference
+    url: https://docs.clusters.xyz/getting-started/api/v1
+- aid: clusters:clusters-registration-api
+  name: Clusters Registration API
+  description: Check availability and build registration transaction data
+  humanURL: https://docs.clusters.xyz/getting-started/api/v1
+  baseURL: https://api.clusters.xyz/v1
+  tags:
+  - Registration
+  properties:
+  - type: OpenAPI
+    url: openapi/clusters-registration-api-openapi.yml
+  - type: APIReference
+    url: https://docs.clusters.xyz/getting-started/api/v1
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: VulnerabilityDisclosure
+  url: security/clusters-vulnerability-disclosure.yml
+- type: Security
+  url: https://clusters.xyz/vulnerability-disclosure
+- type: DomainSecurity
+  url: security/clusters-domain-security.yml
+- type: AgenticAccess
+  url: agentic-access/clusters-agentic-access.yml
+- type: Authentication
+  url: authentication/clusters-authentication.yml
 - type: Website
   url: https://clusters.xyz/
+- type: DeveloperPortal
+  url: https://clusters.xyz/developer
+- type: Documentation
+  url: https://docs.clusters.xyz/
+- type: APIReference
+  url: https://docs.clusters.xyz/getting-started/api/v1
+- type: GettingStarted
+  url: https://docs.clusters.xyz/getting-started/javascript
+- type: SignUp
+  url: https://clusters.xyz/developer
+- type: GitHubOrganization
+  url: https://github.com/clustersxyz
+- type: Blog
+  url: https://clusters.xyz/blog
+- type: TermsOfService
+  url: https://clusters.xyz/terms
+- type: PrivacyPolicy
+  url: https://clusters.xyz/privacy
+- type: SDKs
+  url: packages/clusters-packages.yml
+- type: Packages
+  url: packages/clusters-packages.yml
+- type: LLMsTxt
+  url: llms/clusters-llms.txt
+- type: WellKnown
+  url: well-known/clusters-well-known.yml
+- type: MCPServer
+  url: mcp/clusters-mcp.yml
+- type: Overlay
+  url: overlays/clusters-v1-overlay.yaml
+- type: Conformance
+  url: conformance/clusters-conformance.yml
+- type: ErrorCatalog
+  url: errors/clusters-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/clusters-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/clusters-lifecycle.yml
+- type: Conventions
+  url: conventions/clusters-conventions.yml
+- type: DataModel
+  url: data-model/clusters-data-model.yml
+- type: Sandbox
+  url: sandbox/clusters-sandbox.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Resolve a Clusters name to a wallet and profile
+  url: arazzo/clusters-resolve-name.yml
+- type: Arazzo
+  name: Check availability and build Clusters registration data
+  url: arazzo/clusters-register-name.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.clusters.xyz/getting-started/api/v1 + openapi/clusters-v1-openapi.yml
+authentication:
+  style: >-
+    Optional X-API-KEY header for rate-limit tiers (key from clusters.xyz/developer).
+    Write/manage endpoints require an Authorization: Bearer {token} where the token
+    is minted from a wallet signature (GET /v1/auth/message then POST /v1/auth/token).
+  see: authentication/clusters-authentication.yml
+idempotency:
+  supported: false
+  note: No idempotency key/header is documented for Clusters write endpoints.
+pagination:
+  style: cursor
+  applies_to: [GET /v1/events]
+  request_params: [nextPage, limit, orderBy, fromTimestamp]
+  response_fields: [items, nextPage]
+  default_limit: 500
+  note: When nextPage is supplied, fromTimestamp is ignored.
+environments:
+  test_mode: query-flag
+  param: "testnet=true"
+  network: Sepolia
+  note: Append ?testnet=true to read/query endpoints to target testnet state.
+versioning:
+  style: uri-path
+  current: v1
+  see: lifecycle/clusters-lifecycle.yml
+errors:
+  envelope: http-status + plain JSON
+  see: errors/clusters-problem-types.yml
+rate_limiting:
+  signal: none-documented
+  note: An optional API key raises limits; no rate-limit response headers are documented.
+identifiers:
+  cluster_id: 32-byte hex (0x-prefixed)
+  name_format: "username or username/wallet (e.g. clusters/main)"
+  address_types: [evm, solana]

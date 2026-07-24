@@ -1,0 +1,36 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/clusters-v1-openapi.yml + https://docs.clusters.xyz/introduction/concepts
+entities:
+- name: Cluster
+  description: A profile bundling one or more wallets under a single namespace.
+  id_field: id
+  id_format: 32-byte hex (0x-prefixed)
+  fields: [id, createdBy, createdAt, wallets, isTestnet]
+- name: Wallet
+  description: An individual address enrolled in a cluster, optionally named.
+  fields: [address, name, isVerified, isPrivate, isBackedUp, updatedAt, updatedBy, createdAt]
+- name: Name
+  description: A cluster or wallet name (username or username/wallet) resolvable to an address.
+  fields: [name, owner, totalWeiAmount, clusterId, isTestnet, expiresAt, createdAt, updatedAt]
+- name: Event
+  description: An on/off-chain state-change event in the replayable feed.
+  fields: [id, type, from, data, isTestnet, timestamp]
+  event_types: [ADD_WALLET, REGISTER_NAME]
+relationships:
+- from: Cluster
+  to: Wallet
+  kind: has_many
+  via: wallets
+- from: Wallet
+  to: Cluster
+  kind: belongs_to
+  via: clusterId
+- from: Name
+  to: Cluster
+  kind: belongs_to
+  via: clusterId
+- from: Event
+  to: Cluster
+  kind: belongs_to
+  via: data.cluster_id

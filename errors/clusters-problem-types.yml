@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: derived
+format: http-status
+source: openapi/clusters-v1-openapi.yml + https://docs.clusters.xyz/getting-started/api/v1
+note: >-
+  Clusters does not use RFC 9457 problem+json. Errors are conveyed via HTTP
+  status codes with plain JSON bodies. For name resolution, a 404 still returns
+  the address echo with null clusterName/walletName rather than an error envelope.
+problems:
+- status: 404
+  title: Name not found
+  description: >-
+    No cluster/wallet name is registered for the given address; the body echoes
+    the address with clusterName and walletName set to null.
+  source_operation: openapi/clusters-v1-openapi.yml#getNameByAddress
+- status: 500
+  title: Bulk resolution error
+  description: Server error resolving a batch of names; body is an empty array.
+  source_operation: openapi/clusters-v1-openapi.yml#getAddressesByName
+- status: 401
+  title: Unauthorized
+  description: >-
+    Missing or invalid wallet-signature bearer token on a write/manage endpoint
+    (create cluster, register community name, wallet management).
+  source_operation: openapi/clusters-v1-openapi.yml#createCluster

@@ -1,0 +1,48 @@
+arazzo: 1.0.1
+info:
+  title: Check availability and build Clusters registration data
+  version: 1.0.0
+  summary: Check whether a name is available, then build the EVM registration transaction data to sign.
+sourceDescriptions:
+- name: clustersApi
+  url: ../openapi/clusters-v1-openapi.yml
+  type: openapi
+workflows:
+- workflowId: checkAndBuildRegistration
+  summary: Check a name then produce EVM registration transaction data.
+  inputs:
+    type: object
+    properties:
+      name:
+        type: string
+        default: namethatdoesntexist
+      sender:
+        type: string
+        default: '0x0000000000000000000000000000000000000001'
+      network:
+        type: string
+        default: '1'
+  steps:
+  - stepId: checkAvailability
+    operationId: checkNameAvailability
+    requestBody:
+      contentType: application/json
+      payload:
+      - $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      isAvailable: $response.body#/0/isAvailable
+  - stepId: buildRegistration
+    operationId: getRegistrationDataEvm
+    requestBody:
+      contentType: application/json
+      payload:
+        network: $inputs.network
+        sender: $inputs.sender
+        names:
+        - name: $inputs.name
+    successCriteria:
+    - condition: $statusCode == 200
+  outputs:
+    isAvailable: $steps.checkAvailability.outputs.isAvailable

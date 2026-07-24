@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.clusters.xyz/getting-started/api/v1 + https://docs.clusters.xyz/llms.txt
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://docs.clusters.xyz/getting-started/api/v1
+deprecation:
+  policy_url: https://docs.clusters.xyz/getting-started/api/v0.1-deprecated
+  deprecated_version: v0.1
+  note: >-
+    The v0.1 API is documented as deprecated in favor of v1. No RFC 8594 Sunset
+    header or dated removal window is published.
+status_page: null
+sla: null
+deprecated_operations: []

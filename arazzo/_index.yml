@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: derived
+source: arazzo/*.yml
+workflows:
+- file: clusters-resolve-name.yml
+  workflowId: resolveNameToProfile
+  title: Resolve a Clusters name to a wallet and profile
+  summary: Bulk-resolve a cluster name to its address, then read the full cluster profile.
+- file: clusters-register-name.yml
+  workflowId: checkAndBuildRegistration
+  title: Check availability and build Clusters registration data
+  summary: Check whether a name is available, then build the EVM registration transaction data to sign.

@@ -1,0 +1,36 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/clusters-v1-openapi.yml
+note: >-
+  Clusters publishes no official hosted/remote MCP server as of this pass. This
+  is a derived candidate tool surface — one tool per documented v1 operation —
+  that could back an MCP server for the read-oriented resolution flows.
+server:
+  name: clusters
+  transport: http
+tools:
+- name: get_name_by_address
+  description: Get the cluster and wallet name for an EVM or Solana address.
+  source_operation: openapi/clusters-v1-openapi.yml#getNameByAddress
+- name: get_names_by_owner
+  description: Get all clusters and wallet names owned by an address.
+  source_operation: openapi/clusters-v1-openapi.yml#getNamesByOwner
+- name: get_addresses_by_name
+  description: Bulk resolve one or more cluster names to their wallet addresses.
+  source_operation: openapi/clusters-v1-openapi.yml#getAddressesByName
+- name: check_name_availability
+  description: Check whether one or more cluster names are available to register.
+  source_operation: openapi/clusters-v1-openapi.yml#checkNameAvailability
+- name: check_community_name_availability
+  description: Check availability of a community cluster name.
+  source_operation: openapi/clusters-v1-openapi.yml#checkCommunityNameAvailability
+- name: get_cluster_by_id
+  description: Get a cluster (and its wallets) by id.
+  source_operation: openapi/clusters-v1-openapi.yml#getClusterById
+- name: get_cluster_by_name
+  description: Get a cluster (and its wallets) by name.
+  source_operation: openapi/clusters-v1-openapi.yml#getClusterByName
+- name: get_events
+  description: Page the replayable historical event feed.
+  source_operation: openapi/clusters-v1-openapi.yml#getEvents
