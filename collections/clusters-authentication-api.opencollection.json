@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clusters Authentication API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get signing message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clusters.xyz/v1/auth/message"
+          },
+          "docs": "Get the signing message used for wallet signature authentication."
+        },
+        {
+          "info": {
+            "name": "Get authentication key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clusters.xyz/v1/auth/token",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Authenticate ownership of a specific wallet by submitting a signed message."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,479 @@
+{
+  "item": [
+    {
+      "id": "34beafea-dbe4-4c2e-a366-41e7c6efe577",
+      "name": "Names",
+      "description": {
+        "content": "Resolve addresses to cluster/wallet names and back",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0b32a107-8f03-484a-98d7-17a434a3f7bf",
+          "name": "Get name by address",
+          "request": {
+            "name": "Get name by address",
+            "description": {
+              "content": "Get the cluster and wallet name for an address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "names",
+                "address",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "testnet",
+                  "value": "<boolean>",
+                  "description": "Set true to query Sepolia testnet state."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) EVM or Solana address."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f4367e7-68ee-4bc7-bf18-e893171395c2",
+              "name": "Resolved name",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "names",
+                    "address",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "testnet",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) EVM or Solana address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"type\": \"solana\",\n  \"clusterName\": \"string\",\n  \"walletName\": \"string\",\n  \"isVerified\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e30005a-b6b5-47ea-8724-93a9c2195db5",
+              "name": "No name registered for this address",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "names",
+                    "address",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "testnet",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) EVM or Solana address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"address\": \"string\",\n  \"type\": \"solana\",\n  \"clusterName\": \"string\",\n  \"walletName\": \"string\",\n  \"isVerified\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17535015-020d-4d2d-a70d-46232b7f812b",
+          "name": "Get names by owner",
+          "request": {
+            "name": "Get names by owner",
+            "description": {
+              "content": "Get all clusters and wallet names owned by a single wallet address.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "names",
+                "owner",
+                "address",
+                ":address"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "testnet",
+                  "value": "<boolean>",
+                  "description": "Set true to query Sepolia testnet state."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "address",
+                  "description": "(Required) EVM or Solana address."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66a03c68-be45-44a4-973f-2c4c4dfe8b7f",
+              "name": "Owned names",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "names",
+                    "owner",
+                    "address",
+                    ":address"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "testnet",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "address",
+                      "description": "(Required) EVM or Solana address."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"owner\": \"string\",\n    \"totalWeiAmount\": \"string\",\n    \"createdAt\": \"string\",\n    \"updatedAt\": \"string\",\n    \"updatedBy\": \"string\",\n    \"isTestnet\": true,\n    \"clusterId\": \"string\",\n    \"expiresAt\": \"string\"\n  },\n  {\n    \"name\": \"string\",\n    \"owner\": \"string\",\n    \"totalWeiAmount\": \"string\",\n    \"createdAt\": \"string\",\n    \"updatedAt\": \"string\",\n    \"updatedBy\": \"string\",\n    \"isTestnet\": true,\n    \"clusterId\": \"string\",\n    \"expiresAt\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7ec53a5a-e8de-48ed-acc3-4f71fd397734",
+          "name": "Bulk resolve names to addresses",
+          "request": {
+            "name": "Bulk resolve names to addresses",
+            "description": {
+              "content": "Get the wallets associated with one or more cluster names. Names not found are omitted from the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "names"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"name\": \"<string>\"\n  },\n  {\n    \"name\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d18fb87-7879-4f7c-aec8-69e018236919",
+              "name": "Resolved addresses",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\"\n  },\n  {\n    \"name\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"address\": \"string\",\n    \"clusterName\": \"string\",\n    \"walletName\": \"string\",\n    \"isVerified\": true\n  },\n  {\n    \"name\": \"string\",\n    \"type\": \"string\",\n    \"address\": \"string\",\n    \"clusterName\": \"string\",\n    \"walletName\": \"string\",\n    \"isVerified\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0435f6d6-e799-4573-ba40-70698b994afb",
+              "name": "Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "names"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"name\": \"<string>\"\n  },\n  {\n    \"name\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.clusters.xyz/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6ebcb23c-8284-43b3-996b-68c5bfe32ae7",
+    "name": "Clusters Authentication Names API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clusters is a multichain namespace and identity service that gives users a single universal name (username/wallet) resolvable across EVM, Solana, and other blockchain ecosystems. The v1 REST API resolves addresses to cluster names and back, reads cluster profiles, checks name availability, produces registration transaction data, manages community clusters, and streams a replayable historical event feed. Read endpoints are public; write/manage endpoints require a wallet-signature bearer token. An optional API key raises rate limits.\n\nContact Support:\n Name: Clusters",
+      "type": "text/plain"
+    }
+  }
+}

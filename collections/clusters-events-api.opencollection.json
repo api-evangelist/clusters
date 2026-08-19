@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clusters Authentication Events API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get events",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clusters.xyz/v1/events",
+            "params": [
+              {
+                "name": "nextPage",
+                "value": "",
+                "type": "query",
+                "description": "Cursor to retrieve the next page."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "The user who initiated the event."
+              },
+              {
+                "name": "orderBy",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fromTimestamp",
+                "value": "",
+                "type": "query",
+                "description": "Timestamp in ms to start at (ignored when nextPage is set)."
+              }
+            ]
+          },
+          "docs": "Get a list of historical events that happen on the Clusters application that can be replayed to reconstruct full state."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

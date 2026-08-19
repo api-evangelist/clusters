@@ -1,0 +1,358 @@
+{
+  "item": [
+    {
+      "id": "134f105c-50f8-4e27-bef6-f0297383c838",
+      "name": "Registration",
+      "description": {
+        "content": "Check availability and build registration transaction data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "89ae86b6-e992-4ad4-9ac3-579f1cd32406",
+          "name": "Check availability",
+          "request": {
+            "name": "Check availability",
+            "description": {
+              "content": "Check the availability of one or more cluster names.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "names",
+                "register",
+                "check"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0d393487-4804-4a5a-bf07-371ecacdb37a",
+              "name": "Availability results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "names",
+                    "register",
+                    "check"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"string\",\n    \"isAvailable\": true\n  },\n  {\n    \"name\": \"string\",\n    \"isAvailable\": false\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dead9234-9dc4-4a1f-a659-722660012166",
+          "name": "Get EVM registration data",
+          "request": {
+            "name": "Get EVM registration data",
+            "description": {
+              "content": "Get the transaction data for registering a cluster name on an EVM chain so a user can sign it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "names",
+                "register",
+                "evm"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"network\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"names\": [\n    {\n      \"name\": \"<string>\",\n      \"amountWei\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amountWei\": \"<string>\"\n    }\n  ],\n  \"referralClusterId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "889a803d-a5b5-4cee-a0bc-e311be52cfc2",
+              "name": "Registration transaction data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "names",
+                    "register",
+                    "evm"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"network\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"names\": [\n    {\n      \"name\": \"<string>\",\n      \"amountWei\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amountWei\": \"<string>\"\n    }\n  ],\n  \"referralClusterId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "257a0533-aabb-4435-9991-b6fcde22e525",
+          "name": "Get Solana registration data",
+          "request": {
+            "name": "Get Solana registration data",
+            "description": {
+              "content": "Get the transaction data for registering a cluster name on Solana so a user can sign it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "names",
+                "register",
+                "solana"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"network\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"names\": [\n    {\n      \"name\": \"<string>\",\n      \"amountWei\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amountWei\": \"<string>\"\n    }\n  ],\n  \"referralClusterId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "508ff566-d5be-4510-b669-786ac95d2706",
+              "name": "Registration transaction data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "names",
+                    "register",
+                    "solana"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"network\": \"<string>\",\n  \"sender\": \"<string>\",\n  \"names\": [\n    {\n      \"name\": \"<string>\",\n      \"amountWei\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"amountWei\": \"<string>\"\n    }\n  ],\n  \"referralClusterId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.clusters.xyz/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "51da6145-a9c7-4018-a88e-e4689aec878b",
+    "name": "Clusters Authentication Registration API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clusters is a multichain namespace and identity service that gives users a single universal name (username/wallet) resolvable across EVM, Solana, and other blockchain ecosystems. The v1 REST API resolves addresses to cluster names and back, reads cluster profiles, checks name availability, produces registration transaction data, manages community clusters, and streams a replayable historical event feed. Read endpoints are public; write/manage endpoints require a wallet-signature bearer token. An optional API key raises rate limits.\n\nContact Support:\n Name: Clusters",
+      "type": "text/plain"
+    }
+  }
+}

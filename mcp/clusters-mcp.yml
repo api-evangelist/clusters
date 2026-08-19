@@ -2,10 +2,9 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/clusters-v1-openapi.yml
-note: >-
-  Clusters publishes no official hosted/remote MCP server as of this pass. This
-  is a derived candidate tool surface — one tool per documented v1 operation —
-  that could back an MCP server for the read-oriented resolution flows.
+note: Clusters publishes no official hosted/remote MCP server as of this pass. This is a derived candidate
+  tool surface — one tool per documented v1 operation — that could back an MCP server for the read-oriented
+  resolution flows.
 server:
   name: clusters
   transport: http
@@ -34,3 +33,9 @@ tools:
 - name: get_events
   description: Page the replayable historical event feed.
   source_operation: openapi/clusters-v1-openapi.yml#getEvents
+deployment:
+  mode: none
+  verified: derived
+  tools: 8
+  checked: '2026-08-12'
+  source: catalog MCP census

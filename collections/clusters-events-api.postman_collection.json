@@ -1,0 +1,177 @@
+{
+  "item": [
+    {
+      "id": "dd757a89-1299-4976-8e90-01d05d07b057",
+      "name": "Events",
+      "description": {
+        "content": "Replayable historical event feed",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "40fe8122-561e-4584-b9c7-ab446c311217",
+          "name": "Get events",
+          "request": {
+            "name": "Get events",
+            "description": {
+              "content": "Get a list of historical events that happen on the Clusters application that can be replayed to reconstruct full state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "nextPage",
+                  "value": "<string>",
+                  "description": "Cursor to retrieve the next page."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "500"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>",
+                  "description": "The user who initiated the event."
+                },
+                {
+                  "disabled": false,
+                  "key": "orderBy",
+                  "value": "oldest"
+                },
+                {
+                  "disabled": false,
+                  "key": "fromTimestamp",
+                  "value": "<integer>",
+                  "description": "Timestamp in ms to start at (ignored when nextPage is set)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fb2e0951-d852-40b8-8761-6a8bbd90b211",
+              "name": "List of events",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "nextPage",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "500"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "orderBy",
+                      "value": "oldest"
+                    },
+                    {
+                      "key": "fromTimestamp",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-KEY",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"items\": [\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"from\": \"string\",\n      \"data\": {},\n      \"isTestnet\": false,\n      \"timestamp\": 4265\n    },\n    {\n      \"id\": \"string\",\n      \"type\": \"string\",\n      \"from\": \"string\",\n      \"data\": {},\n      \"isTestnet\": true,\n      \"timestamp\": 758\n    }\n  ],\n  \"nextPage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.clusters.xyz/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-KEY"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1a8ed43c-cd61-428d-8a5b-1570cf15ba25",
+    "name": "Clusters Authentication Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Clusters is a multichain namespace and identity service that gives users a single universal name (username/wallet) resolvable across EVM, Solana, and other blockchain ecosystems. The v1 REST API resolves addresses to cluster names and back, reads cluster profiles, checks name availability, produces registration transaction data, manages community clusters, and streams a replayable historical event feed. Read endpoints are public; write/manage endpoints require a wallet-signature bearer token. An optional API key raises rate limits.\n\nContact Support:\n Name: Clusters",
+      "type": "text/plain"
+    }
+  }
+}

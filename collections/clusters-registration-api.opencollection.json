@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clusters Authentication Registration API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Registration",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clusters.xyz/v1/names/register/check",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check the availability of one or more cluster names."
+        },
+        {
+          "info": {
+            "name": "Get EVM registration data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clusters.xyz/v1/names/register/evm",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the transaction data for registering a cluster name on an EVM chain so a user can sign it."
+        },
+        {
+          "info": {
+            "name": "Get Solana registration data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clusters.xyz/v1/names/register/solana",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the transaction data for registering a cluster name on Solana so a user can sign it."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

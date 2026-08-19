@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Clusters Authentication Names API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-KEY",
+      "value": "{{X-API-KEY}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Names",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get name by address",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clusters.xyz/v1/names/address/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "EVM or Solana address."
+              },
+              {
+                "name": "testnet",
+                "value": "",
+                "type": "query",
+                "description": "Set true to query Sepolia testnet state."
+              }
+            ]
+          },
+          "docs": "Get the cluster and wallet name for an address."
+        },
+        {
+          "info": {
+            "name": "Get names by owner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.clusters.xyz/v1/names/owner/address/:address",
+            "params": [
+              {
+                "name": "address",
+                "value": "",
+                "type": "path",
+                "description": "EVM or Solana address."
+              },
+              {
+                "name": "testnet",
+                "value": "",
+                "type": "query",
+                "description": "Set true to query Sepolia testnet state."
+              }
+            ]
+          },
+          "docs": "Get all clusters and wallet names owned by a single wallet address."
+        },
+        {
+          "info": {
+            "name": "Bulk resolve names to addresses",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.clusters.xyz/v1/names",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get the wallets associated with one or more cluster names. Names not found are omitted from the response."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
