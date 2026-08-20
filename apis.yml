@@ -44,6 +44,16 @@ tags:
 - Naming
 - Blockchain
 - Web3
+- Wallets
+- Multi-Chain
+- Resolver
+tags_raw:
+- Company
+- Infrastructure
+- Identity
+- Naming
+- Blockchain
+- Web3
 - Wallet
 - Multichain
 - Resolver
@@ -66,6 +76,8 @@ apis:
   humanURL: https://docs.clusters.xyz/getting-started/api/v1
   baseURL: https://api.clusters.xyz/v1
   tags:
+  - Cluster
+  tags_raw:
   - Clusters
   properties:
   - type: OpenAPI
@@ -90,6 +102,8 @@ apis:
   humanURL: https://docs.clusters.xyz/getting-started/api/v1
   baseURL: https://api.clusters.xyz/v1
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -102,6 +116,8 @@ apis:
   humanURL: https://docs.clusters.xyz/getting-started/api/v1
   baseURL: https://api.clusters.xyz/v1
   tags:
+  - Name
+  tags_raw:
   - Names
   properties:
   - type: OpenAPI
