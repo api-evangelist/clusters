@@ -4,8 +4,8 @@ info:
   version: 1.0.0
   summary: Check whether a name is available, then build the EVM registration transaction data to sign.
 sourceDescriptions:
-- name: clustersApi
-  url: ../openapi/clusters-v1-openapi.yml
+- name: registrationApi
+  url: ../openapi/clusters-registration-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: checkAndBuildRegistration

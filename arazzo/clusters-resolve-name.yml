@@ -5,7 +5,10 @@ info:
   summary: Bulk-resolve a cluster name to its address, then read the full cluster profile.
 sourceDescriptions:
 - name: clustersApi
-  url: ../openapi/clusters-v1-openapi.yml
+  url: ../openapi/clusters-clusters-api-openapi.yml
+  type: openapi
+- name: namesApi
+  url: ../openapi/clusters-names-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: resolveNameToProfile
