@@ -57,7 +57,7 @@ tags:
 - Blockchain
 - Web3
 - Wallets
-- Multichain
+- Multi-Chain
 - Resolver
 tags_raw:
 - Company
@@ -128,7 +128,7 @@ apis:
   humanURL: https://docs.clusters.xyz/getting-started/api/v1
   baseURL: https://api.clusters.xyz/v1
   tags:
-  - Names
+  - Name
   tags_raw:
   - Names
   properties:
