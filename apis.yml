@@ -1,19 +1,15 @@
 aid: clusters
 name: Clusters
-description: >-
-  Clusters is a multichain namespace and identity service that gives users a
-  single universal name across blockchain ecosystems instead of a separate
-  domain per chain. A Clusters name uses the format username/wallet (for example
-  username/eth or username/sol) to bundle many wallets — EVM chains, Solana, and
-  more — under one hierarchical, human-readable profile. The Clusters v1 REST API
-  resolves an address to its cluster and wallet name and back, reads full cluster
-  profiles, checks name availability, produces on-chain registration transaction
-  data for EVM and Solana, registers community cluster names, and exposes a
-  replayable historical event feed for permissionless indexing. Reads are public;
-  wallet management and registration require a wallet-signature bearer token, and
-  an optional API key raises rate limits. The protocol uses a hub-and-spoke model
-  bridged with LayerZero v2 and replicates metadata to Arweave for data
-  availability. Backed by Electric Capital.
+description: Clusters is a multichain namespace and identity service that gives users a single universal
+  name across blockchain ecosystems instead of a separate domain per chain. A Clusters name uses the format
+  username/wallet (for example username/eth or username/sol) to bundle many wallets — EVM chains, Solana,
+  and more — under one hierarchical, human-readable profile. The Clusters v1 REST API resolves an address
+  to its cluster and wallet name and back, reads full cluster profiles, checks name availability, produces
+  on-chain registration transaction data for EVM and Solana, registers community cluster names, and exposes
+  a replayable historical event feed for permissionless indexing. Reads are public; wallet management
+  and registration require a wallet-signature bearer token, and an optional API key raises rate limits.
+  The protocol uses a hub-and-spoke model bridged with LayerZero v2 and replicates metadata to Arweave
+  for data availability. Backed by Electric Capital.
 url: https://raw.githubusercontent.com/api-evangelist/clusters/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -49,7 +45,7 @@ accessModel:
   method: derived
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-09-16'
 image: https://clusters.xyz/assets/images/apple/apple-touch-icon.png
 tags:
 - Company
@@ -85,7 +81,7 @@ apis:
   - type: APIReference
     url: https://docs.clusters.xyz/getting-started/api/v1
 - aid: clusters:clusters-clusters-api
-  name: Clusters Clusters API
+  name: Clusters API
   description: Read and create clusters (profiles bundling wallets)
   humanURL: https://docs.clusters.xyz/getting-started/api/v1
   baseURL: https://api.clusters.xyz/v1
@@ -196,7 +192,10 @@ common:
   url: well-known/clusters-well-known.yml
 - type: X-MCPServerCandidate
   url: mcp/clusters-mcp.yml
-  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate
+    — a tool list derived from the published API contracts, not an existing server. The scorer already
+    read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type
+    surfaces with a server that does not exist.'
 - type: Overlay
   url: overlays/clusters-v1-overlay.yaml
 - type: Conformance
