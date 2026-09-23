@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Clusters Authentication Names API
+  title: Clusters Names API
   version: '1.0'
-  description: Clusters is a multichain namespace and identity service that gives users a single universal name (username/wallet) resolvable across EVM, Solana, and other blockchain ecosystems. The v1 REST API resolves addresses to cluster names and back, reads cluster profiles, checks name availability, produces registration transaction data, manages community clusters, and streams a replayable historical event feed. Read endpoints are public; write/manage endpoints require a wallet-signature bearer token. An optional API key raises rate limits.
+  description: Clusters is a multichain namespace and identity service that gives users a single universal name (username/wallet) resolvable across EVM, Solana, and other blockchain ecosystems.
   contact:
     name: Clusters
     url: https://docs.clusters.xyz
@@ -97,7 +97,42 @@ paths:
                 type: array
                 items: {}
 components:
+  parameters:
+    AddressPath:
+      name: address
+      in: path
+      required: true
+      schema:
+        type: string
+      description: EVM or Solana address.
+    TestnetQuery:
+      name: testnet
+      in: query
+      required: false
+      schema:
+        type: boolean
+      description: Set true to query Sepolia testnet state.
   schemas:
+    NameResolution:
+      type: object
+      properties:
+        address:
+          type: string
+        type:
+          type: string
+          enum:
+          - evm
+          - solana
+        clusterName:
+          type:
+          - string
+          - 'null'
+        walletName:
+          type:
+          - string
+          - 'null'
+        isVerified:
+          type: boolean
     NameAddress:
       type: object
       properties:
@@ -136,41 +171,6 @@ components:
           type:
           - string
           - 'null'
-    NameResolution:
-      type: object
-      properties:
-        address:
-          type: string
-        type:
-          type: string
-          enum:
-          - evm
-          - solana
-        clusterName:
-          type:
-          - string
-          - 'null'
-        walletName:
-          type:
-          - string
-          - 'null'
-        isVerified:
-          type: boolean
-  parameters:
-    AddressPath:
-      name: address
-      in: path
-      required: true
-      schema:
-        type: string
-      description: EVM or Solana address.
-    TestnetQuery:
-      name: testnet
-      in: query
-      required: false
-      schema:
-        type: boolean
-      description: Set true to query Sepolia testnet state.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
