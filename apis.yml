@@ -47,6 +47,9 @@ specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-09-16'
 image: https://clusters.xyz/assets/images/apple/apple-touch-icon.png
+x-docs-platform: gitbook
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-24
 tags:
 - Company
 - Infrastructure
@@ -100,6 +103,8 @@ apis:
   humanURL: https://docs.clusters.xyz/getting-started/api/v1
   baseURL: https://api.clusters.xyz/v1
   tags:
+  - Community
+  tags_raw:
   - Communities
   properties:
   - type: OpenAPI

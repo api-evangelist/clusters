@@ -97,21 +97,6 @@ paths:
                 type: array
                 items: {}
 components:
-  parameters:
-    AddressPath:
-      name: address
-      in: path
-      required: true
-      schema:
-        type: string
-      description: EVM or Solana address.
-    TestnetQuery:
-      name: testnet
-      in: query
-      required: false
-      schema:
-        type: boolean
-      description: Set true to query Sepolia testnet state.
   schemas:
     NameResolution:
       type: object
@@ -131,21 +116,6 @@ components:
           type:
           - string
           - 'null'
-        isVerified:
-          type: boolean
-    NameAddress:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        address:
-          type: string
-        clusterName:
-          type: string
-        walletName:
-          type: string
         isVerified:
           type: boolean
     OwnedName:
@@ -171,6 +141,36 @@ components:
           type:
           - string
           - 'null'
+    NameAddress:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        address:
+          type: string
+        clusterName:
+          type: string
+        walletName:
+          type: string
+        isVerified:
+          type: boolean
+  parameters:
+    TestnetQuery:
+      name: testnet
+      in: query
+      required: false
+      schema:
+        type: boolean
+      description: Set true to query Sepolia testnet state.
+    AddressPath:
+      name: address
+      in: path
+      required: true
+      schema:
+        type: string
+      description: EVM or Solana address.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
