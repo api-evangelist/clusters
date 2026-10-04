@@ -56,6 +56,19 @@ paths:
                 $ref: '#/components/schemas/AuthToken'
 components:
   schemas:
+    AuthToken:
+      type: object
+      properties:
+        token:
+          type: string
+    SigningMessage:
+      type: object
+      properties:
+        message:
+          type: string
+        signingDate:
+          type: string
+          format: date-time
     AuthTokenRequest:
       type: object
       required:
@@ -76,19 +89,6 @@ components:
           - solana
         wallet:
           type: string
-    AuthToken:
-      type: object
-      properties:
-        token:
-          type: string
-    SigningMessage:
-      type: object
-      properties:
-        message:
-          type: string
-        signingDate:
-          type: string
-          format: date-time
   securitySchemes:
     ApiKeyAuth:
       type: apiKey

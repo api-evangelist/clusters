@@ -81,6 +81,21 @@ paths:
                 $ref: '#/components/schemas/Cluster'
 components:
   schemas:
+    Cluster:
+      type: object
+      properties:
+        id:
+          type: string
+        createdBy:
+          type: string
+        createdAt:
+          type: string
+        wallets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Wallet'
+        isTestnet:
+          type: boolean
     Wallet:
       type: object
       properties:
@@ -100,21 +115,6 @@ components:
           type: string
         createdAt:
           type: string
-    Cluster:
-      type: object
-      properties:
-        id:
-          type: string
-        createdBy:
-          type: string
-        createdAt:
-          type: string
-        wallets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Wallet'
-        isTestnet:
-          type: boolean
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
