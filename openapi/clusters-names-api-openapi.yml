@@ -121,21 +121,6 @@ components:
           type:
           - string
           - 'null'
-    NameAddress:
-      type: object
-      properties:
-        name:
-          type: string
-        type:
-          type: string
-        address:
-          type: string
-        clusterName:
-          type: string
-        walletName:
-          type: string
-        isVerified:
-          type: boolean
     NameResolution:
       type: object
       properties:
@@ -154,6 +139,21 @@ components:
           type:
           - string
           - 'null'
+        isVerified:
+          type: boolean
+    NameAddress:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          type: string
+        address:
+          type: string
+        clusterName:
+          type: string
+        walletName:
+          type: string
         isVerified:
           type: boolean
   parameters:
