@@ -64,6 +64,135 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Clusters is a company surfaced as a portfolio company of electric-capital and added to the API Evangelist network as a stub for enrichment. Sector: infrastructure. This profile is a lead awaiting the enrichment pipeline.
+Clusters is a multichain namespace and identity service that gives users a single universal name across blockchain ecosystems instead of a separate domain per chain. A Clusters name uses the format username/wallet (for example username/eth or username/sol) to bundle many wallets — EVM chains, Solana, and more — under one hierarchical, human-readable profile. The Clusters v1 REST API resolves an address to its cluster and wallet name and back, reads full cluster profiles, checks name availability, produces on-chain registration transaction data for EVM and Solana, registers community cluster names, and exposes a replayable historical event feed for permissionless indexing. Reads are public; wallet management and registration require a wallet-signature bearer token, and an optional API key raises rate limits. The protocol uses a hub-and-spoke model bridged with LayerZero v2 and replicates metadata to Arweave for data availability. Backed by Electric Capital.
 
-Backed by: electric-capital — https://clusters.xyz/
+**Areas:** Company · Infrastructure · Identity · Naming · Blockchain · Web3 · Wallets · Multi-Chain · Resolver
+
+## Clusters on APIs.io
+
+Everything profiled for Clusters is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/clusters/](https://apis.io/providers/clusters/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [Clusters Authentication API](https://apis.io/apis/clusters/clusters-authentication-api/) — Wallet-signature authentication for write operations
+- [Clusters API](https://apis.io/apis/clusters/clusters-clusters-api/) — Read and create clusters (profiles bundling wallets)
+- [Clusters Communities API](https://apis.io/apis/clusters/clusters-communities-api/) — Community cluster name availability and registration
+- [Clusters Events API](https://apis.io/apis/clusters/clusters-events-api/) — Replayable historical event feed
+- [Clusters Names API](https://apis.io/apis/clusters/clusters-names-api/) — Resolve addresses to cluster/wallet names and back
+- [Clusters Registration API](https://apis.io/apis/clusters/clusters-registration-api/) — Check availability and build registration transaction data
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (2)
+
+Multi-step workflows that chain operations into a business task.
+
+- [Check availability and build Clusters registration data](https://apis.io/arazzos/clusters/clusters-register-name/)
+- [Resolve a Clusters name to a wallet and profile](https://apis.io/arazzos/clusters/clusters-resolve-name/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [clusters](https://apis.io/servers/clusters/clusters/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Clusters Agentic Access](https://apis.io/agentic-access/clusters/clusters-agentic-access/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Clusters Authentication API](https://apis.io/collections/clusters/open-clusters-authentication-api/)
+- [Authentication Clusters API](https://apis.io/collections/clusters/open-clusters-clusters-api/)
+- [Clusters Authentication Communities API](https://apis.io/collections/clusters/open-clusters-communities-api/)
+- [Clusters Authentication Events API](https://apis.io/collections/clusters/open-clusters-events-api/)
+- [Clusters Authentication Names API](https://apis.io/collections/clusters/open-clusters-names-api/)
+- [Clusters Authentication Registration API](https://apis.io/collections/clusters/open-clusters-registration-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Clusters V1 Overlay](https://apis.io/overlays/clusters/clusters-v1-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Clusters Authentication](https://apis.io/security/clusters/clusters-authentication/)
+- [Clusters Domain Security](https://apis.io/security/clusters/clusters-domain-security/)
+- [Clusters Vulnerability Disclosure](https://apis.io/security/clusters/clusters-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://clusters.xyz/)
+- [Documentation](https://docs.clusters.xyz/)
+- [Getting started](https://docs.clusters.xyz/getting-started/javascript)
+- [API reference](https://docs.clusters.xyz/getting-started/api/v1)
+- [Sign up](https://clusters.xyz/developer)
+- [Blog](https://clusters.xyz/blog)
+- [Security](https://clusters.xyz/vulnerability-disclosure)
+- [Terms of service](https://clusters.xyz/terms)
+- [Privacy policy](https://clusters.xyz/privacy)
+- [GitHub](https://github.com/clustersxyz)
+
+## API Evangelist rating
+
+**Kin Score 20.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 56.5 |
+| Access clarity | 0.0 |
+
+**Agent readiness 18.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.5** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/clusters/](https://apis.io/providers/clusters/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Clusters: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/clusters/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
